@@ -107,6 +107,7 @@ contains(names, name, result => {
 */
 
 // CODE HERE
+// Similar to 'unique characters' morning challenge
 
 const uniq = (array, callback) => {
   for (let i = 0; i < array.length; i++){
@@ -186,6 +187,7 @@ var users = [
 
 // CODE HERE 
 
+const getUserById = (array, id, callback)
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
