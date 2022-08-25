@@ -65,9 +65,9 @@ const last = (arr, callback) => callback(arr[arr.length - 1])
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 
 
@@ -83,7 +83,7 @@ const last = (arr, callback) => callback(arr[arr.length - 1])
 // CODE HERE 
 
 const contains = (arr, names, callBack) => callBack(arr.includes(names))
-const name = 'Brad'
+const name = 'Toky'
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
@@ -108,6 +108,19 @@ contains(names, name, result => {
 
 // CODE HERE
 
+const uniq = (array, callback) => {
+  for (let i = 0; i < array.length; i++){
+    for (let j = i + 1; j < array.length; i++){
+      if (array[i] === array[j]){
+        array.splice(j, 1)
+        j--
+      }
+    }
+  }
+callback(array)
+}
+
+
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
   The callback function should take in one parameter called uniqArr.
@@ -117,6 +130,7 @@ contains(names, name, result => {
 
 // CODE HERE
 
+uniq(names, (uniqArr) => console.log(`The new names array with all the duplicate items removed is ${uniqArr}`))
 
 
 ////////// PROBLEM 6 //////////
@@ -128,6 +142,7 @@ contains(names, name, result => {
 
 // CODE HERE 
 
+const each = (array, callback) => array.forEach(( name, index) => callback(name, index))
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -207,7 +222,7 @@ var users = [
 
   Create a variable called addTen and set it equal to 
   the invocation of addingFactory passing in the number
-  10 as an arguemnt.
+  10 as an argument.
 */
 
 // CODE HERE
