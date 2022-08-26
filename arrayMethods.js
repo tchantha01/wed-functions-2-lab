@@ -130,4 +130,4 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 // Chaining method from lecture notes
 
 const bobsTotal = purchases.filter(purchases => purchases.owner === 'Bob').reduce((acc, curr) => acc + curr.price, 0)
-console.log(`Bobs total equals ${bobsTotal}`)
+console.log(`Bob's total equals ${bobsTotal}`)
