@@ -63,7 +63,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 
 const totalPopulation = populations.reduce((acc, curr) => acc + curr)
 
-console.log(totalPopulation)
+console.log(`Total population equals ${totalPopulation}`)
 
 ////////// PROBLEM 4 //////////
 
