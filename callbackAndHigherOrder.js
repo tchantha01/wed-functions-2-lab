@@ -13,6 +13,7 @@ const multiply = (num1, num2, callback) => callback(num1 * num2)
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
+
 multiply(4, 3, answer => {
   console.log('The answer is ' + answer) //should console.log 12
 })
@@ -84,6 +85,7 @@ last(names, lastName => {
 
 const contains = (arr, names, callBack) => callBack(arr.includes(names))
 const name = 'Toky'
+
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
@@ -131,7 +133,7 @@ callback(array)
 
 // CODE HERE
 
-uniq(names, (uniqArr) => console.log(`The new names array with all the duplicate items removed is ${uniqArr}`))
+uniq(names, uniqArr => {console.log(`The new names array with all the duplicate items removed is ${uniqArr}`)})
 
 
 ////////// PROBLEM 6 //////////
@@ -154,6 +156,7 @@ const each = (array, callback) => array.forEach(( name, index) => callback(name,
 
 // CODE HERE
 
+each(names, (item, index) => `The item at the index ${index} is ${item}`)
 
 ////////// PROBLEM 7 //////////
 
@@ -187,17 +190,25 @@ var users = [
 
 // CODE HERE 
 
-const getUserById = (array, id, callback)
+const getUserById = (array, id, callback) => {
+  for (let i= 0; i < array.length; i++){
+    if (array[i].id === id){
+      return callback(array[i])
+    }
+  }
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
+
+//Same example as in the functions 2 lecture notes
 
 /*
   You'll be writing a higher order function that returns
@@ -215,6 +226,12 @@ const getUserById = (array, id, callback)
 
 // CODE HERE
 
+const addingFactory = (x) => {
+  return function(y){
+    return x + y
+  }
+}
+
 /*
   Now that you have addingFactory, you can create other
   functions from it. 
@@ -229,6 +246,8 @@ const getUserById = (array, id, callback)
 
 // CODE HERE
 
+const addTen = addingFactory(10)
+
 /*
   Now the inner function is stored in the addTen variable! 
 
@@ -240,6 +259,10 @@ const getUserById = (array, id, callback)
 */
 
 // CODE HERE
+
+console.log(addTen(2))
+
+console.log(addTen(5))
 
 /*
   Let's make another function from the addingFactory. 
@@ -253,3 +276,7 @@ const getUserById = (array, id, callback)
 */
 
 // CODE HERE
+
+const addNine = addingFactory(9)
+
+console.log(addNine(9))
